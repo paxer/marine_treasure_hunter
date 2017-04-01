@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://seagrass.tex" type="Texture" id=1]
+
+[node name="Seagrass" type="Sprite"]
+
+transform/pos = Vector2( 32, 696 )
+texture = ExtResource( 1 )
+
+
