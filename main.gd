@@ -12,7 +12,7 @@ func draw_seabed():
 	# we have 1 inital grass block on the Seabed.tscn scene
 	var initial_grass_block = load("res://Seabed.tscn").instance()
 	add_child(initial_grass_block)
-	var initial_grass_block_size = initial_grass_block.get_texture().get_size()
+	var initial_grass_block_size = initial_grass_block.get_node("Sprite").get_texture().get_size()
 	var number_of_grass_blocks_to_add = (screen_size.x / initial_grass_block_size.x) - 1 # since again, we already have one
 	
 	# now add all additional grass blocks to the screen
