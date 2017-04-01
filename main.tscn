@@ -54,7 +54,7 @@ transform/pos = Vector2( 530.546, 63 )
 z/z = 1
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 3.24397, 0, 0, 3.13933, -0.526814, -0.0533042 )
+shapes/0/transform = Matrix32( 3.24397, 0, 0, 3.74416, -0.526814, 7.80958 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -68,8 +68,8 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ship"]
 
-transform/pos = Vector2( -0.526814, -0.0533042 )
-transform/scale = Vector2( 3.24397, 3.13933 )
+transform/pos = Vector2( -0.526814, 7.80958 )
+transform/scale = Vector2( 3.24397, 3.74416 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
