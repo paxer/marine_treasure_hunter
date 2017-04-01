@@ -9,7 +9,7 @@ var half_of_player_size_x
 
 func _ready():
 	screen_size = get_viewport_rect().size
-	player_size = get_node("Sprite").get_texture().get_size()
+	player_size = get_node("Diver").get_texture().get_size()
 	half_of_player_size_y = player_size.y / 2
 	half_of_player_size_x = player_size.x / 2
 	set_fixed_process(true)
@@ -28,3 +28,4 @@ func _fixed_process(delta):
 		
 	if (player_position.x < (screen_size.x - half_of_player_size_x) and Input.is_action_pressed("ui_right")):
 		move(Vector2(speed * delta, 0))
+		
