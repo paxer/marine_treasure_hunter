@@ -27,5 +27,5 @@ func draw_environment(scene_path):
 		add_child(new_grass_block)
 
 func draw_treasures():
-	var treasures = load("res://scenes/treasures/Treasures.tscn").instance()
+	var treasures = load("res://scenes/treasures/treasures.tscn").instance()
 	add_child(treasures)
