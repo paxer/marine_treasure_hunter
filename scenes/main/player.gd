@@ -16,16 +16,19 @@ func _ready():
 
 func _fixed_process(delta):
 	var player_position = get_pos()
+	var motion = Vector2()
 	
 	if (player_position.y > half_of_player_size_y and Input.is_action_pressed("ui_up")):
-		move(Vector2(0, -(speed * delta)))
+		motion += Vector2(0, -1)
 	
 	if (player_position.y < (screen_size.y - half_of_player_size_y) and Input.is_action_pressed("ui_down")):
-		move(Vector2(0, speed * delta))
+		motion += Vector2(0, 1)
 		
 	if (player_position.x > half_of_player_size_x and Input.is_action_pressed("ui_left")):
-		move(Vector2(-(speed * delta), 0))
+		motion += Vector2(-1, 0)
 		
 	if (player_position.x < (screen_size.x - half_of_player_size_x) and Input.is_action_pressed("ui_right")):
-		move(Vector2(speed * delta, 0))
+		motion += Vector2(1, 0)
 		
+	motion = motion.normalized()* speed *delta
+	move(motion)
