@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://treasures.gd" type="Script" id=1]
-[ext_resource path="res://chest.png" type="Texture" id=2]
-[ext_resource path="res://grail.png" type="Texture" id=3]
-[ext_resource path="res://gold.png" type="Texture" id=4]
+[ext_resource path="res://scenes/treasures/chest.png" type="Texture" id=2]
+[ext_resource path="res://scenes/treasures/grail.png" type="Texture" id=3]
+[ext_resource path="res://scenes/treasures/gold.png" type="Texture" id=4]
 
 [node name="Treasures" type="Node2D"]
 
@@ -28,7 +28,6 @@ __meta__ = { "_edit_lock_":true }
 [node name="Grail" type="StaticBody2D" parent="."]
 
 transform/pos = Vector2( 377.462, 632 )
-transform/scale = Vector2( 1, 1 )
 input/pickable = false
 collision/layers = 1
 collision/mask = 1
@@ -55,7 +54,6 @@ bounce = 0.0
 
 [node name="Sprite" type="Sprite" parent="Gold"]
 
-transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 4 )
 __meta__ = { "_edit_lock_":true }
 

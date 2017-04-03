@@ -4,8 +4,8 @@ var screen_size
 
 func _ready():
 	screen_size = get_viewport_rect().size
-	draw_environment("res://seabed.tscn")
-	draw_environment("res://sky.tscn")
+	draw_environment("res://scenes/seabed/seabed.tscn")
+	draw_environment("res://scenes/sky/sky.tscn")
 	draw_treasures()
 
 #  this is the initial version and most-likely wil be refactored once I'll get a better understanding how it all works
@@ -27,5 +27,5 @@ func draw_environment(scene_path):
 		add_child(new_grass_block)
 
 func draw_treasures():
-	var treasures = load("res://Treasures.tscn").instance()
+	var treasures = load("res://scenes/treasures/Treasures.tscn").instance()
 	add_child(treasures)
