@@ -42,12 +42,8 @@ func _fixed_process(delta):
 			treasure = collider
 			
 		if("ship" in collider.get_groups() and treasure):
-			#remove_child(treasure)
-			#var wr = weakref(treasure)
-			#if (wr.get_ref()):
-			#	print("FREEE")
-		    #	treasure.queue_free()
-			print("TODO + 1 Score")
+			treasure.queue_free()
+			treasure = null
 			
 	if(treasure):
 		treasure.set_pos(Vector2(get_pos().x + 20, get_pos().y + 30))
