@@ -1,18 +1,36 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://scenes/treasures/treasures.gd" type="Script" id=1]
 [ext_resource path="res://scenes/treasures/chest.png" type="Texture" id=2]
 [ext_resource path="res://scenes/treasures/grail.png" type="Texture" id=3]
 [ext_resource path="res://scenes/treasures/gold.png" type="Texture" id=4]
 
-[node name="Treasures" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Treasures" type="Node2D" groups=[ "treasures" ]]
 
 script/script = ExtResource( 1 )
 
-[node name="Chest" type="StaticBody2D" parent="."]
+[node name="Chest" type="StaticBody2D" parent="." groups=[ "treasures" ]]
 
 transform/pos = Vector2( 163.678, 632 )
 input/pickable = false
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 2.73077, 0, 0, 2.84615, -0.247479, 4.1594 )
+shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
@@ -25,10 +43,22 @@ bounce = 0.0
 texture = ExtResource( 2 )
 __meta__ = { "_edit_lock_":true }
 
-[node name="Grail" type="StaticBody2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest"]
+
+transform/pos = Vector2( -0.247479, 4.1594 )
+transform/scale = Vector2( 2.73077, 2.84615 )
+shape = SubResource( 4 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Grail" type="StaticBody2D" parent="." groups=[ "treasures" ]]
 
 transform/pos = Vector2( 377.462, 632 )
 input/pickable = false
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 2.79231, 0, 0, 2.86923, 1.16856, 3.85942 )
+shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
@@ -41,10 +71,22 @@ bounce = 0.0
 texture = ExtResource( 3 )
 __meta__ = { "_edit_lock_":true }
 
-[node name="Gold" type="StaticBody2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grail"]
+
+transform/pos = Vector2( 1.16856, 3.85942 )
+transform/scale = Vector2( 2.79231, 2.86923 )
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Gold" type="StaticBody2D" parent="." groups=[ "treasures" ]]
 
 transform/pos = Vector2( 629.66, 632 )
 input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 2.80769, 0, 0, 2.73077, -0.229452, 3.65942 )
+shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
@@ -55,6 +97,15 @@ bounce = 0.0
 [node name="Sprite" type="Sprite" parent="Gold"]
 
 texture = ExtResource( 4 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gold"]
+
+transform/pos = Vector2( -0.229452, 3.65942 )
+transform/scale = Vector2( 2.80769, 2.73077 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
 __meta__ = { "_edit_lock_":true }
 
 

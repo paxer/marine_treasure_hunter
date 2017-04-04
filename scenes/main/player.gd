@@ -6,6 +6,7 @@ var screen_size
 var player_size
 var half_of_player_size_y
 var half_of_player_size_x
+var treasure
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -32,3 +33,21 @@ func _fixed_process(delta):
 		
 	motion = motion.normalized()* speed *delta
 	move(motion)
+	
+	if(is_colliding()):
+		var collider = get_collider()
+		
+		if("treasures" in collider.get_groups() and not treasure):
+			collider.find_node("CollisionShape2D").set_trigger(true)
+			treasure = collider
+			
+		if("ship" in collider.get_groups() and treasure):
+			#remove_child(treasure)
+			#var wr = weakref(treasure)
+			#if (wr.get_ref()):
+			#	print("FREEE")
+		    #	treasure.queue_free()
+			print("TODO + 1 Score")
+			
+	if(treasure):
+		treasure.set_pos(Vector2(get_pos().x + 20, get_pos().y + 30))
