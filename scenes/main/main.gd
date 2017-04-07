@@ -7,6 +7,7 @@ func _ready():
 	draw_environment("res://scenes/seabed/seabed.tscn")
 	draw_environment("res://scenes/sky/sky.tscn")
 	draw_treasures()
+	instantiate_enemies()
 
 #  this is the initial version and most-likely wil be refactored once I'll get a better understanding how it all works
 func draw_environment(scene_path):
@@ -29,3 +30,7 @@ func draw_environment(scene_path):
 func draw_treasures():
 	var treasures = load("res://scenes/treasures/treasures.tscn").instance()
 	add_child(treasures)
+	
+func instantiate_enemies():
+	var fish = load("res://scenes/enemies/fish/fish.tscn").instance()
+	add_child(fish)
