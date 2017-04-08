@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var speed = 400
+export var speed = 250
 
 onready var screen_size = get_viewport_rect().size
 var motion = Vector2()
@@ -11,7 +11,7 @@ func _ready():
 
 func set_initial_position():
 	randomize()
-	var inital_y_position = int(rand_range(128, screen_size.y - 128))
+	var inital_y_position = int(rand_range(160, screen_size.y - 160))
 	set_pos(Vector2(0, inital_y_position))
 
 func _fixed_process(delta):
