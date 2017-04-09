@@ -26,7 +26,7 @@ script/script = ExtResource( 1 )
 
 [node name="Chest" type="StaticBody2D" parent="." groups=[ "treasures" ]]
 
-transform/pos = Vector2( 163.678, 632 )
+transform/pos = Vector2( 163.678, 642 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 2.73077, 0, 0, 2.84615, -0.247479, 4.1594 )
@@ -54,7 +54,7 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="Grail" type="StaticBody2D" parent="." groups=[ "treasures" ]]
 
-transform/pos = Vector2( 377.462, 632 )
+transform/pos = Vector2( 377.462, 642 )
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 2.79231, 0, 0, 2.86923, 1.16856, 3.85942 )
@@ -82,7 +82,7 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="Gold" type="StaticBody2D" parent="." groups=[ "treasures" ]]
 
-transform/pos = Vector2( 629.66, 632 )
+transform/pos = Vector2( 629.66, 642 )
 input/pickable = false
 shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 2.80769, 0, 0, 2.73077, -0.229452, 3.65942 )

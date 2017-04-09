@@ -16,8 +16,8 @@ func set_initial_position():
 	randomize()
 	speed = int(rand_range(50, 150))
 	# the crab can start moving from the left or right sides of the screen bottom
-	var start_from_left = Vector2(-sprite_size.x, screen_size.y - 96)
-	var start_from_right = Vector2(screen_size.x + sprite_size.x, screen_size.y - 96)
+	var start_from_left = Vector2(-sprite_size.x, screen_size.y - 86)
+	var start_from_right = Vector2(screen_size.x + sprite_size.x, screen_size.y - 86)
 	var initial_position
 	# 50% chance to move from right or left
 	if randf() > 0.5:
