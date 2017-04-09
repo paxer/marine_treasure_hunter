@@ -34,3 +34,6 @@ func draw_treasures():
 func instantiate_enemies():
 	var fish = load("res://scenes/enemies/fish/fish.tscn").instance()
 	add_child(fish)
+	
+	var crab = load("res://scenes/enemies/crab/crab.tscn").instance()
+	add_child(crab)

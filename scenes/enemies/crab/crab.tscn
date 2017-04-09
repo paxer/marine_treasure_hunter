@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://scenes/enemies/fish/Fish.gd" type="Script" id=1]
-[ext_resource path="res://scenes/enemies/fish/fish.png" type="Texture" id=2]
+[ext_resource path="res://scenes/enemies/crab/crab.gd" type="Script" id=1]
+[ext_resource path="res://scenes/enemies/crab/crab.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Fish" type="KinematicBody2D"]
+[node name="crab" type="KinematicBody2D"]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 3.29257, 0, 0, 3.2564, 0, 0 )
+shapes/0/transform = Matrix32( 3.19231, 0, 0, 3.23077, -0.934202, -0.400956 )
 shapes/0/trigger = false
 collision/layers = 2
 collision/mask = 1
@@ -26,7 +26,8 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/scale = Vector2( 3.29257, 3.2564 )
+transform/pos = Vector2( -0.934202, -0.400956 )
+transform/scale = Vector2( 3.19231, 3.23077 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
