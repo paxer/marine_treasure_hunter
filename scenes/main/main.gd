@@ -1,6 +1,7 @@
 extends Node2D
 
 var screen_size
+onready var player = get_node("Player")
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -8,7 +9,9 @@ func _ready():
 	draw_environment("res://scenes/sky/sky.tscn")
 	draw_treasures()
 	instantiate_enemies()
-
+	draw_stats()
+	player.connect("killed", self, "draw_stats")
+	
 #  this is the initial version and most-likely wil be refactored once I'll get a better understanding how it all works
 func draw_environment(scene_path):
 	# first of all we need to calculate how many grass blocks we need to add to the screen	
@@ -37,3 +40,6 @@ func instantiate_enemies():
 	
 	var crab = load("res://scenes/enemies/crab/crab.tscn").instance()
 	add_child(crab)
+	
+func draw_stats():
+	find_node("Lives").set_text(str("Lives: ", Global.lives))

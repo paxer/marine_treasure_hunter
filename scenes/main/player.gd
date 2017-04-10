@@ -1,12 +1,17 @@
 extends KinematicBody2D
 
-export var speed = 200
+signal killed()
 
+var speed = 200
 var screen_size
 var player_size
 var half_of_player_size_y
 var half_of_player_size_x
 var treasure
+var killed = false
+onready var camera_anim = get_parent().find_node("CameraAnimation")
+
+var shake_amount = 1.0
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -36,7 +41,6 @@ func _fixed_process(delta):
 	
 	if(is_colliding()):
 		var collider = get_collider()
-		
 		if("treasures" in collider.get_groups() and not treasure):
 			collider.find_node("CollisionShape2D").set_trigger(true)
 			treasure = collider
@@ -45,5 +49,22 @@ func _fixed_process(delta):
 			treasure.queue_free()
 			treasure = null
 			
+		if "enemies" in collider.get_groups():
+			killed()
+			
 	if(treasure):
 		treasure.set_pos(Vector2(get_pos().x + 20, get_pos().y + 30))
+		
+func killed():
+	if(!killed):
+		Global.lives -= 1
+		killed = true
+		#get_tree().set_pause(true)
+		#flash_light.set_enabled(false)
+		#player.set_modulate(Color(1, 0, 0))
+		camera_anim.play("shake")
+		killed = false
+		#set_fixed_process(false)
+		#set_process_input(false)
+		#get_tree().set_pause(false)
+		emit_signal("killed")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://scenes/main/main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/main/player.gd" type="Script" id=2]
@@ -16,12 +16,25 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
+[sub_resource type="Animation" id=3]
+
+resource/name = "shake"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "update":0, "values":[ Vector2( 0, 0 ), Vector2( 10, 10 ), Vector2( -10, -10 ), Vector2( 10, 10 ), Vector2( -10, -10 ), Vector2( 0, 0 ) ] }
+
 [node name="game" type="Node2D"]
 
 script/script = ExtResource( 1 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 537.644, 234.05 )
 z/z = 100
 input/pickable = false
@@ -32,7 +45,6 @@ collision/layers = 1
 collision/mask = 6
 collision/margin = 0.08
 script/script = ExtResource( 2 )
-speed = 200
 
 [node name="Diver" type="Sprite" parent="Player"]
 
@@ -51,6 +63,7 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="Ship" type="KinematicBody2D" parent="." groups=[ "ship" ]]
 
+editor/display_folded = true
 transform/pos = Vector2( 530.546, 63 )
 z/z = 1
 input/pickable = false
@@ -75,5 +88,61 @@ shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 __meta__ = { "_edit_lock_":true }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+editor/display_folded = true
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Lives" type="Label" parent="CanvasLayer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 13.0
+margin/top = 10.0
+margin/right = 53.0
+margin/bottom = 24.0
+custom_colors/font_color = Color( 0.992188, 0, 0, 1 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+process/pause_mode = 2
+transform/pos = Vector2( 512.375, 364.358 )
+transform/scale = Vector2( 16.9448, 12.4909 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+
+[node name="CameraAnimation" type="AnimationPlayer" parent="Camera2D"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/shake = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
 
 

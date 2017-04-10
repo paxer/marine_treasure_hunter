@@ -8,11 +8,11 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Fish" type="KinematicBody2D"]
+[node name="Fish" type="KinematicBody2D" groups=[ "enemies" ]]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 3.29257, 0, 0, 3.2564, 0, 0 )
+shapes/0/transform = Matrix32( 3.14663, 0, 0, 3.15578, -0.141629, -0.197843 )
 shapes/0/trigger = false
 collision/layers = 2
 collision/mask = 1
@@ -26,7 +26,8 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/scale = Vector2( 3.29257, 3.2564 )
+transform/pos = Vector2( -0.141629, -0.197843 )
+transform/scale = Vector2( 3.14663, 3.15578 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
