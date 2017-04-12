@@ -34,12 +34,12 @@ script/script = ExtResource( 1 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
-transform/pos = Vector2( 537.644, 234.05 )
+transform/pos = Vector2( 536.632, 233.973 )
+transform/scale = Vector2( 0.968386, 1.0024 )
 z/z = 100
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 3.13272, 0, 0, 3.19537, -0.0700984, -1.20877 )
+shapes/0/transform = Matrix32( 3.05, 0, 0, 3.03613, -0.253371, -0.948108 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 6
@@ -48,18 +48,27 @@ script/script = ExtResource( 2 )
 
 [node name="Diver" type="Sprite" parent="Player"]
 
-transform/pos = Vector2( -0.975342, -3.41371 )
+transform/pos = Vector2( 0.00583124, -1.09158 )
+transform/scale = Vector2( 0.884454, 0.891589 )
 texture = ExtResource( 3 )
 __meta__ = { "_edit_lock_":true }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 
-transform/pos = Vector2( -0.0700984, -1.20877 )
-transform/scale = Vector2( 3.13272, 3.19537 )
+transform/pos = Vector2( -0.253371, -0.948108 )
+transform/scale = Vector2( 3.05, 3.03613 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 __meta__ = { "_edit_lock_":true }
+
+[node name="Timer" type="Timer" parent="Player"]
+
+process/pause_mode = 2
+process_mode = 1
+wait_time = 2.0
+one_shot = false
+autostart = false
 
 [node name="Ship" type="KinematicBody2D" parent="." groups=[ "ship" ]]
 
@@ -115,7 +124,7 @@ max_lines_visible = -1
 [node name="Camera2D" type="Camera2D" parent="."]
 
 process/pause_mode = 2
-transform/pos = Vector2( 512.375, 364.358 )
+transform/pos = Vector2( 511.781, 364.358 )
 transform/scale = Vector2( 16.9448, 12.4909 )
 anchor_mode = 1
 rotating = false

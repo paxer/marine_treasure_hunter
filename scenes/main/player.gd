@@ -10,6 +10,7 @@ var half_of_player_size_x
 var treasure
 var killed = false
 onready var camera_anim = get_parent().find_node("CameraAnimation")
+onready var timer = get_node("Timer")
 
 var shake_amount = 1.0
 
@@ -59,12 +60,11 @@ func killed():
 	if(!killed):
 		Global.lives -= 1
 		killed = true
-		#get_tree().set_pause(true)
-		#flash_light.set_enabled(false)
-		#player.set_modulate(Color(1, 0, 0))
 		camera_anim.play("shake")
 		killed = false
-		#set_fixed_process(false)
-		#set_process_input(false)
-		#get_tree().set_pause(false)
+		get_tree().set_pause(true)
+		timer.start()
+		yield(timer, "timeout") 
+		get_tree().reload_current_scene()
+		get_tree().set_pause(false)
 		emit_signal("killed")

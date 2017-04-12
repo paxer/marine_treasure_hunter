@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var player_position
+onready var player_position = get_parent().get_node("Player").get_pos()
 
 func _ready():
 	set_fixed_process(true)
