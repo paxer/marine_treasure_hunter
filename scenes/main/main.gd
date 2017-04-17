@@ -32,12 +32,17 @@ func draw_treasures():
 	var treasures = load("res://scenes/treasures/treasures.tscn").instance()
 	add_child(treasures)
 	
-func instantiate_enemies():
+func instantiate_fish():
 	var fish = load("res://scenes/enemies/fish/fish.tscn").instance()
 	add_child(fish)
-	
+
+func instantiate_crab():
 	var crab = load("res://scenes/enemies/crab/crab.tscn").instance()
 	add_child(crab)
+
+func instantiate_enemies():
+	instantiate_fish()
+	instantiate_crab()
 	
 func draw_stats():
 	find_node("Lives").set_text(str("Lives: ", Global.lives))
