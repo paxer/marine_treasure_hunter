@@ -1,10 +1,8 @@
 extends Node2D
 
-var screen_size
 onready var player = get_node("Player")
 
 func _ready():
-	screen_size = get_viewport_rect().size
 	draw_environment("res://scenes/seabed/seabed.tscn")
 	draw_environment("res://scenes/sky/sky.tscn")
 	draw_treasures()
@@ -19,7 +17,7 @@ func draw_environment(scene_path):
 	var initial_grass_block = load(scene_path).instance()
 	add_child(initial_grass_block)
 	var initial_grass_block_size = initial_grass_block.get_node("Sprite").get_texture().get_size()
-	var number_of_grass_blocks_to_add = (screen_size.x / initial_grass_block_size.x) - 1 # since again, we already have one
+	var number_of_grass_blocks_to_add = (Global.screen_size.x / initial_grass_block_size.x) - 1 # since again, we already have one
 	
 	# now add all additional grass blocks to the screen
 	var last_added_grass_x_coordinate = initial_grass_block.get_pos().x

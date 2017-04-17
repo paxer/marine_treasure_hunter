@@ -8,9 +8,8 @@ func _ready():
 	
 func randomize_treasures_postion(treasures):
 	var number_of_treasures = treasures.size()
-	var screen_size = get_viewport_rect().size
 	# split a screen into areas where we will add each treasure
-	var area_size = (screen_size.x - MIN_DISTANCE_BETWEEN_TREASURES) / number_of_treasures
+	var area_size = (Global.screen_size.x - MIN_DISTANCE_BETWEEN_TREASURES) / number_of_treasures
 	
 	var area = 1
 	var start_range = TREASUE_SPRITE_SIZE

@@ -1,23 +1,21 @@
 [gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://scenes/enemies/fish/Fish.gd" type="Script" id=1]
-[ext_resource path="res://scenes/enemies/fish/fish.png" type="Texture" id=2]
+[ext_resource path="res://scenes/bullet/bullet.gd" type="Script" id=1]
+[ext_resource path="res://scenes/bullet/bullet.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 10, 6.21737 )
 
-[node name="Fish" type="KinematicBody2D" groups=[
-"enemies",
-]]
+[node name="Bullet" type="KinematicBody2D"]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 3.14663, 0, 0, 3.15578, -0.141629, -0.197843 )
+shapes/0/transform = Matrix32( 1.61377, 0, 0, 0.195869, -0.0233547, -0.061683 )
 shapes/0/trigger = false
-collision/layers = 2
-collision/mask = 1
+collision/layers = 8
+collision/mask = 2
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 
@@ -30,8 +28,8 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( -0.141629, -0.197843 )
-transform/scale = Vector2( 3.14663, 3.15578 )
+transform/pos = Vector2( -0.0233547, -0.061683 )
+transform/scale = Vector2( 1.61377, 0.195869 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0

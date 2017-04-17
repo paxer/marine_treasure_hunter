@@ -71,11 +71,18 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Timer" type="Timer" parent="Player"]
+[node name="ReloadSceneTimer" type="Timer" parent="Player"]
 
 process/pause_mode = 2
 process_mode = 1
 wait_time = 2.0
+one_shot = false
+autostart = false
+
+[node name="BulletFireTimer" type="Timer" parent="Player"]
+
+process_mode = 1
+wait_time = 0.3
 one_shot = false
 autostart = false
 
@@ -139,6 +146,7 @@ max_lines_visible = -1
 [node name="Camera2D" type="Camera2D" parent="."]
 
 process/pause_mode = 2
+editor/display_folded = true
 transform/pos = Vector2( 511.781, 364.358 )
 transform/scale = Vector2( 16.9448, 12.4909 )
 anchor_mode = 1
