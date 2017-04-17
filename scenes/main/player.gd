@@ -11,7 +11,8 @@ var treasure
 var killed = false
 onready var camera_anim = get_parent().find_node("CameraAnimation")
 onready var timer = get_node("Timer")
-var current_direction = "left"
+enum directions {left, right}
+var current_direction = directions.left
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -31,11 +32,11 @@ func _fixed_process(delta):
 		motion += Vector2(0, 1)
 		
 	if (player_position.x > half_of_player_size_x and Input.is_action_pressed("ui_left")):
-		set_direction("left")
+		set_direction(directions.left)
 		motion += Vector2(-1, 0)
 		
 	if (player_position.x < (screen_size.x - half_of_player_size_x) and Input.is_action_pressed("ui_right")):
-		set_direction("right")
+		set_direction(directions.right)
 		motion += Vector2(1, 0)
 		
 	motion = motion.normalized()* speed *delta
@@ -71,13 +72,11 @@ func killed():
 		emit_signal("killed")
 		
 func set_direction(direction):
-	if direction == "left" and current_direction == "right":
+	if direction == directions.left and current_direction == directions.right:
 	  get_node("Diver").set_flip_h(false)
-	  current_direction = "left"
+	  current_direction = directions.left
 	
-	if direction == "right" and current_direction == "left":
+	if direction == directions.right and current_direction == directions.left:
 	  get_node("Diver").set_flip_h(true)
-	  current_direction = "right"
-		
-		
+	  current_direction = directions.right
 		

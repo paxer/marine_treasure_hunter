@@ -26,7 +26,12 @@ tracks/0/type = "value"
 tracks/0/path = NodePath(".:offset")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "update":0, "values":[ Vector2( 0, 0 ), Vector2( 10, 10 ), Vector2( -10, -10 ), Vector2( 10, 10 ), Vector2( -10, -10 ), Vector2( 0, 0 ) ] }
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 10, 10 ), Vector2( -10, -10 ), Vector2( 10, 10 ), Vector2( -10, -10 ), Vector2( 0, 0 ) ]
+}
 
 [node name="game" type="Node2D"]
 
@@ -51,7 +56,9 @@ script/script = ExtResource( 2 )
 transform/pos = Vector2( 0.00583124, -1.09158 )
 transform/scale = Vector2( 0.884454, 0.891589 )
 texture = ExtResource( 3 )
-__meta__ = { "_edit_lock_":true }
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 
@@ -60,7 +67,9 @@ transform/scale = Vector2( 3.05, 3.03613 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
-__meta__ = { "_edit_lock_":true }
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Timer" type="Timer" parent="Player"]
 
@@ -70,7 +79,9 @@ wait_time = 2.0
 one_shot = false
 autostart = false
 
-[node name="Ship" type="KinematicBody2D" parent="." groups=[ "ship" ]]
+[node name="Ship" type="KinematicBody2D" parent="." groups=[
+"ship",
+]]
 
 editor/display_folded = true
 transform/pos = Vector2( 530.546, 63 )
@@ -87,7 +98,9 @@ script/script = ExtResource( 4 )
 [node name="Sprite" type="Sprite" parent="Ship"]
 
 texture = ExtResource( 5 )
-__meta__ = { "_edit_lock_":true }
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ship"]
 
@@ -96,7 +109,9 @@ transform/scale = Vector2( 3.24397, 3.74416 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
-__meta__ = { "_edit_lock_":true }
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
