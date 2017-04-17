@@ -78,7 +78,8 @@ func killed():
 func fire():
 	if can_shoot:
 		var bullet = load("res://scenes/bullet/bullet.tscn").instance()
-		add_child(bullet)
+		bullet.init(current_direction)
+		get_parent().add_child(bullet)
 		can_shoot = false
 		fire_bullet_timer.connect("timeout", self, "can_shoot_timeout") 
 		fire_bullet_timer.start()
