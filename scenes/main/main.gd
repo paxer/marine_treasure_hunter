@@ -33,6 +33,7 @@ func draw_treasures():
 	add_child(treasures)
 	
 func instantiate_fish():
+	#for i in range(0, 2): # TODO: depends from the level add more fishes, count intsances and do not create more on the screen then needed
 	var fish = load("res://scenes/enemies/fish/fish.tscn").instance()
 	add_child(fish)
 
