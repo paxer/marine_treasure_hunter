@@ -28,6 +28,9 @@ func its_show_time():
 	timeout = false
 	
 func _fixed_process(delta):
+	if(is_colliding()):
+		get_collider().killed() # it is always a Player
+	
 	if !timeout:
 		move_enemy(delta)
 

@@ -56,9 +56,6 @@ func _fixed_process(delta):
 			treasure.queue_free()
 			treasure = null
 			
-		if "enemies" in collider.get_groups():
-			killed()
-			
 	if(treasure):
 		treasure.set_pos(Vector2(get_pos().x + 20, get_pos().y + 30))
 		
