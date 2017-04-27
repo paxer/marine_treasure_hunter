@@ -68,7 +68,6 @@ func killed():
 		get_tree().set_pause(true)
 		reload_scene_timer.start()
 		yield(reload_scene_timer, "timeout") 
-		get_tree().reload_current_scene()
 		get_tree().set_pause(false)
 		emit_signal("killed")
 
