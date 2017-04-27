@@ -11,6 +11,7 @@ var killed = false
 enum directions {left, right}
 var current_direction = directions.left
 var can_shoot = true
+var currently_holding_init_treasure_posistion
 
 onready var camera_anim = get_parent().find_node("CameraAnimation")
 onready var reload_scene_timer = get_node("ReloadSceneTimer")
@@ -51,6 +52,7 @@ func _fixed_process(delta):
 		if("treasures" in collider.get_groups() and not treasure):
 			collider.find_node("CollisionShape2D").set_trigger(true)
 			treasure = collider
+			currently_holding_init_treasure_posistion = treasure.get_pos()
 			
 		if("ship" in collider.get_groups() and treasure):
 			treasure.queue_free()
@@ -69,7 +71,9 @@ func killed():
 		reload_scene_timer.start()
 		yield(reload_scene_timer, "timeout") 
 		get_tree().set_pause(false)
+		set_treasure_pos_after_kill()
 		emit_signal("killed")
+		
 
 func fire():
 	if can_shoot:
@@ -91,4 +95,9 @@ func set_direction(direction):
 	if direction == directions.right and current_direction == directions.left:
 	  get_node("Diver").set_flip_h(true)
 	  current_direction = directions.right
-		
+
+func set_treasure_pos_after_kill():
+	if treasure:
+		treasure.set_pos(currently_holding_init_treasure_posistion)
+		treasure.find_node("CollisionShape2D").set_trigger(false)
+		treasure = null
