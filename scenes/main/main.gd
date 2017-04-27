@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var player = get_node("Player")
+onready var initial_player_position = player.get_pos()
 
 func _ready():
 	draw_environment("res://scenes/seabed/seabed.tscn")
@@ -9,6 +10,7 @@ func _ready():
 	instantiate_enemies()
 	draw_stats()
 	player.connect("killed", self, "draw_stats")
+	player.connect("killed", self, "draw_environment_after_killed")
 	
 #  this is the initial version and most-likely wil be refactored once I'll get a better understanding how it all works
 func draw_environment(scene_path):
@@ -44,6 +46,12 @@ func instantiate_crab():
 func instantiate_enemies():
 	instantiate_fish()
 	instantiate_crab()
-	
+
+func draw_environment_after_killed():
+	for node in get_tree().get_nodes_in_group("enemies"):
+		node.queue_free()
+	player.set_pos(initial_player_position)
+	instantiate_enemies()
+
 func draw_stats():
 	find_node("Lives").set_text(str("Lives: ", Global.lives))

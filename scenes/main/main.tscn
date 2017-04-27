@@ -44,7 +44,7 @@ transform/scale = Vector2( 0.968386, 1.0024 )
 z/z = 100
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 3.05, 0, 0, 3.03613, -0.253371, -0.948108 )
+shapes/0/transform = Matrix32( 3.05, 0, 0, 2.97267, -0.253371, -0.899435 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 6
@@ -62,8 +62,8 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 
-transform/pos = Vector2( -0.253371, -0.948108 )
-transform/scale = Vector2( 3.05, 3.03613 )
+transform/pos = Vector2( -0.253371, -0.899435 )
+transform/scale = Vector2( 3.05, 2.97267 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -147,7 +147,7 @@ max_lines_visible = -1
 
 process/pause_mode = 2
 editor/display_folded = true
-transform/pos = Vector2( 511.781, 364.358 )
+transform/pos = Vector2( 511.781, 366.993 )
 transform/scale = Vector2( 16.9448, 12.4909 )
 anchor_mode = 1
 rotating = false

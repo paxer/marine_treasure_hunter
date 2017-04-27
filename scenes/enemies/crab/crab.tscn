@@ -14,7 +14,7 @@ extents = Vector2( 10, 10 )
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 3.19231, 0, 0, 3.23077, -0.934202, -0.400956 )
+shapes/0/transform = Matrix32( 3.5962, 0, 0, 3.44688, 0.175392, -0.623717 )
 shapes/0/trigger = false
 collision/layers = 2
 collision/mask = 1
@@ -30,8 +30,8 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( -0.934202, -0.400956 )
-transform/scale = Vector2( 3.19231, 3.23077 )
+transform/pos = Vector2( 0.175392, -0.623717 )
+transform/scale = Vector2( 3.5962, 3.44688 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
