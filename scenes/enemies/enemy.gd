@@ -16,6 +16,10 @@ func _ready():
 	set_initial_position_after_timeout()
 	set_fixed_process(true)
 
+func _on_Area2D_body_enter( body ):
+	if (body.get_name() == "Player"): 
+		body.killed()
+
 func set_initial_position_after_timeout():
 	timeout = true
 	set_initial_position()
@@ -28,8 +32,7 @@ func its_show_time():
 	timeout = false
 	
 func _fixed_process(delta):
-	if(is_colliding()):
-		get_collider().killed() # it is always a Player
+	pass
 	
 	if !timeout:
 		move_enemy(delta)
