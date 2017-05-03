@@ -122,7 +122,6 @@ __meta__ = {
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -139,6 +138,22 @@ margin/top = 10.0
 margin/right = 53.0
 margin/bottom = 24.0
 custom_colors/font_color = Color( 0.992188, 0, 0, 1 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="HighScores" type="Label" parent="CanvasLayer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 130.0
+margin/top = 10.0
+margin/right = 198.0
+margin/bottom = 24.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "High Score"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

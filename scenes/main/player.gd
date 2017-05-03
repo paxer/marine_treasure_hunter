@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal killed()
+signal treasure_on_the_ship()
 
 var speed = 200
 var player_size
@@ -55,8 +56,8 @@ func _fixed_process(delta):
 			currently_holding_init_treasure_posistion = treasure.get_pos()
 			
 		if("ship" in collider.get_groups() and treasure):
-			treasure.queue_free()
-			treasure = null
+			treasure_on_the_ship(treasure)
+
 			
 	if(treasure):
 		treasure.set_pos(Vector2(get_pos().x + 20, get_pos().y + 30))
@@ -74,6 +75,12 @@ func killed():
 		set_treasure_pos_after_kill()
 		emit_signal("killed")
 		
+
+func treasure_on_the_ship(t):
+	Global.current_game_high_score += 10
+	t.queue_free()
+	treasure = null
+	emit_signal("treasure_on_the_ship")
 
 func fire():
 	if can_shoot:

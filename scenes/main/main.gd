@@ -10,6 +10,7 @@ func _ready():
 	instantiate_enemies()
 	draw_stats()
 	player.connect("killed", self, "draw_stats")
+	player.connect("treasure_on_the_ship", self, "draw_stats")
 	player.connect("killed", self, "draw_environment_after_killed")
 	
 #  this is the initial version and most-likely wil be refactored once I'll get a better understanding how it all works
@@ -55,3 +56,4 @@ func draw_environment_after_killed():
 
 func draw_stats():
 	find_node("Lives").set_text(str("Lives: ", Global.lives))
+	find_node("HighScores").set_text(str("High Scores: ", Global.current_game_high_score))
