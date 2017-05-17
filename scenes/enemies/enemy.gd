@@ -33,9 +33,10 @@ func set_initial_position_after_timeout():
 
 func killed():
 	# TODO: play killed animation
-	# TODO: + game score
+	Global.current_game_high_score += 5
 	queue_free()
 	game.instantiate_fish()
+	game.draw_stats()
 	
 func its_show_time():
 	timeout = false
