@@ -26,18 +26,5 @@ func _fixed_process(delta):
 	motion = motion.normalized() * speed * delta
 	move(motion)
 	
-	if(is_colliding()):
-		var collider = get_collider()
-		if "enemies" in collider.get_groups():
-			killed(collider)
-	
 	if get_global_pos().x < -sprite_texture_size.x or get_global_pos().x > Global.screen_size.x + sprite_texture_size.x:
 		queue_free()
-		
-func killed(collider):
-	# TODO: play killed animation
-	# TODO: + game score
-	# TODO: detect the collider type and instantiate the same?
-	collider.queue_free()
-	game.instantiate_fish()
-	

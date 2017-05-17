@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 onready var sprite_size = get_node("Sprite").get_texture().get_size()
 onready var timer = get_node("Timer")
+onready var game = get_tree().get_root().get_node("game")
 
 var speed
 var motion = Vector2()
@@ -16,9 +17,11 @@ func _ready():
 	set_initial_position_after_timeout()
 	set_fixed_process(true)
 
-func _on_Area2D_body_enter( body ):
+func _on_Area2D_body_enter(body):
 	if (body.get_name() == "Player"): 
 		body.killed()
+	if "bullets" in body.get_groups():
+		killed()
 
 func set_initial_position_after_timeout():
 	timeout = true
@@ -27,6 +30,12 @@ func set_initial_position_after_timeout():
 	randomize()
 	timer.set_wait_time(int(rand_range(1, 3)))
 	timer.start()
+
+func killed():
+	# TODO: play killed animation
+	# TODO: + game score
+	queue_free()
+	game.instantiate_fish()
 	
 func its_show_time():
 	timeout = false
@@ -36,7 +45,6 @@ func _fixed_process(delta):
 	
 	if !timeout:
 		move_enemy(delta)
-
 
 func set_initial_position():
 	motion = Vector2()
