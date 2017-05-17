@@ -51,6 +51,10 @@ func instantiate_enemies():
 func draw_environment_after_killed():
 	for node in get_tree().get_nodes_in_group("enemies"):
 		node.queue_free()
+		
+	for node in get_tree().get_nodes_in_group("bullets"):
+		node.queue_free()
+		
 	player.set_pos(initial_player_position)
 	instantiate_enemies()
 
